@@ -141,7 +141,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -944628639613478452, guid: 59f3e3ca93c9f6041bfe9a85a85d4ae2, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -381,7 +382,13 @@ PlayerSettings:
       m_Height: 36
       m_Kind: 0
       m_SubKind: 
-  m_BuildTargetBatching: []
+  m_BuildTargetBatching:
+  - m_BuildTarget: Standalone
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
+  - m_BuildTarget: WebGL
+    m_StaticBatching: 0
+    m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
@@ -674,6 +681,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     Android: 
     Standalone: 
+    WebGL: 
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
@@ -788,7 +796,7 @@ PlayerSettings:
   cloudProjectId: 41c9545f-e178-4884-b200-9549c88c9733
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GreenHorizons 2025-06-20_14-05-08
+  projectName: GreenHorizons
   organizationId: hkittelberger
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
