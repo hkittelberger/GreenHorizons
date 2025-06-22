@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Unity.Template.Multiplayer.NGO.Runtime
 {
@@ -59,6 +60,9 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
         {
             View.Hide();
             CustomNetworkManager.Singleton.InitializeNetworkLogic(true, false);
+
+            SceneManager.LoadScene("SinglePlayerScene");
+
         }
     }
 }
