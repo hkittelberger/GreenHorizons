@@ -69,9 +69,10 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
 
                     IEnumerator DelayedLoadScene()
                     {
-                        yield return new WaitForSeconds(2f);
-                        SceneManager.LoadScene("MultiplayerScene");
+                        yield return new WaitForSeconds(5f);
+                        SceneManager.LoadScene("MultiplayerScene", LoadSceneMode.Single);
                     }
+                    View.Hide();
                     break;
                 case SessionError.MatchmakerAssignmentFailed:
                     error = $"Failed to get ticket status.";
