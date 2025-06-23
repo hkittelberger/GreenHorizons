@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class CameraFollow2DLERP : MonoBehaviour {
 
-    private GameObject target;
+    private Transform target;
     public float camSpeed = 4.0f;
 
     [Header("Zoom Settings")]
@@ -22,8 +22,12 @@ public class CameraFollow2DLERP : MonoBehaviour {
         zoomAction.Enable();
     }
 
-    void Start() {
+    /* void Start() {
         target = GameObject.FindWithTag("Player");
+    } */
+
+    public void SetTarget(Transform newTarget) {
+        target = newTarget;
     }
 
     void FixedUpdate () {

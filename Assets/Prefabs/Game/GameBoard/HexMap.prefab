@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &268051484347816795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 745045703334372562}
+  - component: {fileID: 7579423859603722282}
+  m_Layer: 0
+  m_Name: HexMap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &745045703334372562
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268051484347816795}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7579423859603722282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268051484347816795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 356c412f4380ed445b4512d0d8ee94b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 4
+  tileTypes:
+  - name: Alloy
+    prefab: {fileID: 6417332802668566602, guid: d0c44ac78d899bd4198d8dd75d23bc69, type: 3}
+    count: 16
+  - name: Bricks
+    prefab: {fileID: 6417332802668566602, guid: 28d2de144f29aa0459b70f9c4a52c5d2, type: 3}
+    count: 16
+  - name: Food
+    prefab: {fileID: 6417332802668566602, guid: 194e3136efc32e544ab3d1551a8ce7c3, type: 3}
+    count: 16
+  - name: Oil
+    prefab: {fileID: 6417332802668566602, guid: 55670ba56da818b419278e4c7319f307, type: 3}
+    count: 16
+  - name: Water
+    prefab: {fileID: 6417332802668566602, guid: 8a6e69b950974f24ab8c8a9308b06250, type: 3}
+    count: 17
+  waterTile: {fileID: 6417332802668566602, guid: 8a6e69b950974f24ab8c8a9308b06250, type: 3}
+  hexWidth: 3
+  hexHeight: 2.598

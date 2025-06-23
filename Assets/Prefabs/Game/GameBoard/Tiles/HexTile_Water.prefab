@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5496520092003314449}
   - component: {fileID: 5662901226942049529}
-  - component: {fileID: -445832383012210413}
+  - component: {fileID: -1372811038238267623}
+  - component: {fileID: 99659978372257192}
   m_Layer: 0
-  m_Name: HexTile_Bricks
+  m_Name: HexTile_Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.990566, g: 0.5319893, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.73670626, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &-445832383012210413
+--- !u!60 &-1372811038238267623
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,3 +142,16 @@ PolygonCollider2D:
       - {x: 0.5, y: 0}
       - {x: 0.25, y: 0.43359375}
   m_UseDelaunayMesh: 0
+--- !u!114 &99659978372257192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6417332802668566602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c70a7e3c2465943b305262449724ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileData: {fileID: 11400000, guid: 12289ab42e9955e46aef9ae48eb4aa3b, type: 2}

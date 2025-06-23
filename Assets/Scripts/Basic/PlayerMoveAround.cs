@@ -1,14 +1,42 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Unity.Netcode;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerMoveAround : MonoBehaviour
+public class PlayerMoveAround : NetworkBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float rotationSpeed = 720f;
 
     private Vector2 moveInput;
+
+    public GameObject cameraPrefab;
+    public GameObject inputPrefab;
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "SinglePlayerScene" || IsOwner)
+        {
+            if (Camera.main != null)
+                Camera.main.gameObject.SetActive(false);
+
+            if (cameraPrefab != null)
+            {
+                var cam = Instantiate(cameraPrefab);
+                cam.GetComponent<CameraFollow2DLERP>().SetTarget(transform);
+
+                var inputInstance = Instantiate(inputPrefab);
+                inputInstance.GetComponent<InputHandler>().SetCamera(cam.transform);
+
+            }
+            else
+            {
+                Debug.LogWarning("Camera prefab is not assigned.");
+            }
+        }
+    }
 
     void Update()
     {

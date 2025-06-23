@@ -1,4 +1,5 @@
 using UnityEngine.UIElements;
+using UnityEngine;
 
 namespace Unity.Template.Multiplayer.NGO.Runtime
 {
@@ -12,6 +13,17 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
         {
             var uiDocument = GetComponent<UIDocument>();
             m_Root = uiDocument.rootVisualElement;
+
+            var matchContainer = m_Root.Q<VisualElement>("match");
+
+            matchContainer.style.backgroundColor = new StyleColor(Color.clear);
+
+            m_Root.style.width = 300;
+            m_Root.style.height = 200;
+            m_Root.style.position = Position.Absolute;
+            m_Root.style.right = 10;
+            m_Root.style.bottom = 10;
+            m_Root.style.backgroundColor = new StyleColor(Color.clear);
 
             m_WinButton = m_Root.Q<Button>("winButton");
             m_WinButton.RegisterCallback<ClickEvent>(OnClickWin);

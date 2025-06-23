@@ -6,6 +6,7 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
 
         void Awake()
         {
+            // SceneManager.LoadScene("MultiplayerScene");
             AddListener<MatchResultComputedEvent>(OnClientMatchResultComputed);
             AddListener<MatchEndAcknowledgedEvent>(OnClientMatchEndAcknowledged);
         }

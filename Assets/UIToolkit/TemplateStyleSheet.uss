@@ -1,13 +1,16 @@
 * {
     -unity-font-style: bold;
+    opacity: 0.62;
 }
 
 .canvas {
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     align-self: auto;
     flex-grow: 1;
-    background-color: rgb(54, 54, 54);
+    align-content: auto;
+    opacity: 0.6;
+    visibility: visible;
 }
 
 .label {
@@ -31,9 +34,9 @@
 }
 
 .button {
-    font-size: 36px;
-    width: 480px;
-    height: 80px;
+    font-size: 12px;
+    width: 300px;
+    height: 60px;
     background-color: rgb(61, 119, 194);
     color: rgb(255, 255, 255);
     border-left-width: 3px;
@@ -54,6 +57,13 @@
     transition-timing-function: ease;
     margin-top: 3px;
     margin-bottom: 3px;
+    align-items: auto;
+    align-self: auto;
+    justify-content: flex-start;
+    min-width: 0;
+    min-height: 0;
+    max-width: 300px;
+    max-height: 50px;
 }
 
 .button:hover {

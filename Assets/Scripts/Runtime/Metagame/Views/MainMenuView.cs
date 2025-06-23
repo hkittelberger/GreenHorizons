@@ -24,7 +24,7 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
             m_QuitButton.RegisterCallback<ClickEvent>(OnClickQuit);
 
             m_TitleLabel = m_Root.Query<Label>("titleLabel");
-            m_TitleLabel.text = "Game title";
+            m_TitleLabel.text = "Green Horizons";
 
             CustomNetworkManager.OnConfigurationLoaded += OnGameConfigurationLoaded;
         }

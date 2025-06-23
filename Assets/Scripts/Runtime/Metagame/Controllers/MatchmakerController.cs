@@ -5,6 +5,7 @@ using Unity.Services.Matchmaker.Models;
 using Unity.Services.Multiplayer;
 using UnityEngine;
 using static Unity.Services.Matchmaker.Models.MultiplayAssignment;
+using UnityEngine.SceneManagement;
 
 namespace Unity.Template.Multiplayer.NGO.Runtime
 {
@@ -64,6 +65,13 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
                 case SessionError.None:
                 case SessionError.Unknown:
                     Debug.Log("Match found!");
+                    StartCoroutine(DelayedLoadScene());
+
+                    IEnumerator DelayedLoadScene()
+                    {
+                        yield return new WaitForSeconds(2f);
+                        SceneManager.LoadScene("MultiplayerScene");
+                    }
                     break;
                 case SessionError.MatchmakerAssignmentFailed:
                     error = $"Failed to get ticket status.";

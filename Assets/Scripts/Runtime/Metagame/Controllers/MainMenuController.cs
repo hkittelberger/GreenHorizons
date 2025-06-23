@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Unity.Template.Multiplayer.NGO.Runtime
 {
@@ -38,17 +39,21 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
             }
             View.Hide();
             App.View.LoadingScreen.Show();
+
+            // SceneManager.LoadScene("MultiplayerScene");
         }
 
         void OnEnterMatchmakerQueue(EnterMatchmakerQueueEvent evt)
         {
             View.Hide();
+            // SceneManager.LoadScene("MultiplayerScene");
         }
 
         void OnExitMatchmakerQueue(ExitMatchmakerQueueEvent evt)
         {
             View.Show();
-            View.FindMatchButton.SetEnabled(false); //needs to be called here as the defualt status of the button in the UI is enabled, so disabling it before showing the view does nothing
+            //needs to be called here as the defualt status of the button in the UI is enabled, so disabling it before showing the view does nothing
+            View.FindMatchButton.SetEnabled(false); 
         }
 
         void OnExitedMatchmakerQueue(ExitedMatchmakerQueueEvent evt)
@@ -61,8 +66,14 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
             View.Hide();
             CustomNetworkManager.Singleton.InitializeNetworkLogic(true, false);
 
-            SceneManager.LoadScene("SinglePlayerScene");
+            StartCoroutine(DelayAndLoad());
 
+            IEnumerator DelayAndLoad()
+            {
+                yield return new WaitForSeconds(1f);
+                SceneManager.LoadScene("SinglePlayerScene");
+            }
+            return;
         }
     }
 }

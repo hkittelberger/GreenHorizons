@@ -52,6 +52,9 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
 
         [SerializeField]
         GameApplication m_GameAppPrefab;
+
+        [SerializeField]
+        GameApplication m_GameAppPrefabBad;
         GameApplication m_GameApp;
         [SerializeField]
         Player m_BotPrefab;
@@ -361,17 +364,42 @@ namespace Unity.Template.Multiplayer.NGO.Runtime
         void OnServerPrepareGame()
         {
             Debug.Log("[Server] Preparing game");
+            
+            // Only continue if all clients have valid PlayerObjects
+            foreach (var client in m_NetworkManager.ConnectedClients.Values)
+            {
+                if (client.PlayerObject == null)
+                {
+                    Debug.LogWarning("Delaying game start: PlayerObject not yet spawned.");
+                    return;
+                }
+            }
+
             m_PreparedGame = true;
             InstantiateGameApplication();
+
             foreach (var connectionToClient in m_NetworkManager.ConnectedClients.Values)
             {
-                connectionToClient.PlayerObject.GetComponent<Player>().OnClientPrepareGameClientRpc();
+                var playerObj = connectionToClient.PlayerObject;
+
+                var player = connectionToClient.PlayerObject.GetComponent<Player>();
+
+                if (player != null)
+                {
+                    player.OnClientPrepareGameClientRpc();
+                }
+                else
+                {
+                    Debug.LogError("Player component missing from PlayerObject");
+                }
             }
         }
+
 
         internal void InstantiateGameApplication()
         {
             m_GameApp = Instantiate(m_GameAppPrefab);
+            // m_GameApp = Instantiate(m_GameAppPrefabBad);
         }
 
         internal void OnServerGameReadyToStart()
